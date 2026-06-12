@@ -12,8 +12,9 @@ const AUTH = (() => {
       account.password === password && 
       Security.validateRole(account.role)
     );
-    
+
     if (!user) {
+      try { if (window.VishiDB?.logLogin) await window.VishiDB.logLogin(cleanUsername, false); } catch {}
       return { ok: false, message: "The username or password is not correct." };
     }
 
@@ -26,11 +27,13 @@ const AUTH = (() => {
       expiresAt: now + timeout,
       remember: !!remember
     };
-    
+
     storageFor(remember).setItem(sessionKey(), JSON.stringify(session));
     if (remember) sessionStorage.removeItem(sessionKey());
     else localStorage.removeItem(sessionKey());
-    
+
+    try { if (window.VishiDB?.logLogin) await window.VishiDB.logLogin(user.username, true); } catch {}
+
     return { ok: true, user: session };
   }
 
