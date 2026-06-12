@@ -16,7 +16,7 @@ window.STORY_CONFIG = {
     },
     {
       // MAIN BIRTHDAY GIRL - Primary recipient
-      username: "SWETU",
+      username: "SWEETU",
       password: "birthdaygirl",
       role: "birthdayGirl",
       isTestSubject: false
