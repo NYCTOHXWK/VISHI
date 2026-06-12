@@ -8,25 +8,50 @@ window.STORY_CONFIG = {
   timezone: "Asia/Kolkata",
   users: [
     {
-      // CHANGE ADMIN USERNAME HERE
+      // ADMIN - Full control over all test subjects
       username: "admin",
-      // CHANGE ADMIN PASSWORD HERE - NOW PLAIN TEXT (not SHA-256)
       password: "change_me",
-      role: "admin"
+      role: "admin",
+      canManage: ["birthdaygirl", "testsubject1", "testsubject2", "testsubject3"]
     },
     {
-      // CHANGE BIRTHDAY GIRL USERNAME HERE
+      // MAIN BIRTHDAY GIRL - Primary recipient
       username: "birthdaygirl",
-      // CHANGE BIRTHDAY GIRL PASSWORD HERE - NOW PLAIN TEXT
       password: "change_me",
-      role: "birthdayGirl"
+      role: "birthdayGirl",
+      isTestSubject: false
     },
     {
-      // TESTER ACCOUNT - can preview and test all chapters
-      // Can be shared for QA/testing before sharing with birthday girl
+      // TEST SUBJECT 1 - For testing and previewing
+      username: "testsubject1",
+      password: "test123",
+      role: "testsubject",
+      isTestSubject: true,
+      displayName: "Test Subject 1"
+    },
+    {
+      // TEST SUBJECT 2 - For testing and previewing
+      username: "testsubject2",
+      password: "test123",
+      role: "testsubject",
+      isTestSubject: true,
+      displayName: "Test Subject 2"
+    },
+    {
+      // TEST SUBJECT 3 - For testing and previewing
+      username: "testsubject3",
+      password: "test123",
+      role: "testsubject",
+      isTestSubject: true,
+      displayName: "Test Subject 3"
+    },
+    {
+      // LEGACY TESTER - General QA testing (backward compatible)
       username: "tester",
       password: "tester123",
-      role: "tester"
+      role: "tester",
+      isTestSubject: true,
+      displayName: "QA Tester"
     }
   ],
   media: {
