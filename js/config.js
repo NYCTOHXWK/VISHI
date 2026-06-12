@@ -2,7 +2,7 @@
 // Single control center: customize the website by editing this file only.
 window.STORY_CONFIG = {
   // CHANGE HER NAME HERE
-  girlName: "Her Name",
+  girlName: "SWEETU",
   // CHANGE BIRTHDAY DATE HERE
   birthdayDate: "2026-06-18T00:00:00+05:30",
   timezone: "Asia/Kolkata",
@@ -10,7 +10,7 @@ window.STORY_CONFIG = {
     {
       // ADMIN - Full control over all test subjects
       username: "admin",
-      password: "change_me",
+      password: "Vinay",
       role: "admin",
       canManage: ["birthdaygirl", "testsubject1", "testsubject2", "testsubject3"]
     },
