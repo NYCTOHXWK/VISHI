@@ -16,8 +16,8 @@ window.STORY_CONFIG = {
     },
     {
       // MAIN BIRTHDAY GIRL - Primary recipient
-      username: "birthdaygirl",
-      password: "change_me",
+      username: "SWETU",
+      password: "birthdaygrl",
       role: "birthdayGirl",
       isTestSubject: false
     },
@@ -98,7 +98,7 @@ window.STORY_CONFIG = {
       title: "A Beautiful Beginning",
       image: "assets/images/ch1.jpg",
       alt: "Chapter 1 memory photo for A Beautiful Beginning",
-      text: "Chapter 1 begins with curiosity, the kind of feeling that does not need to arrive loudly to become unforgettable. When I imagine this year of your life, I do not only think about dates on a calendar. I think about the first time I felt this way.",
+      text: "Eveythng begins with curiosity, the kind of feeling that does not need to arrive loudly to become unforgettable. When I imagine this year of your life, I do not only think about dates on a calendar. I think about the first time I felt this way.",
       reveal: "A little more of the story opens here."
     },
     {
