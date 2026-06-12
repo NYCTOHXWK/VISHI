@@ -1,8 +1,7 @@
 "use strict";
 function cloneConfig() { return JSON.parse(JSON.stringify(window.STORY_CONFIG)); }
 window.getStoryConfig = function getStoryConfig() {
-  const key = window.STORY_CONFIG.unlockSettings.configOverrideKey;
-  const raw = localStorage.getItem(key);
+  const raw = localStorage.getItem("vishi_config_override");
   if (!raw) return window.STORY_CONFIG;
   try {
     const override = JSON.parse(raw);

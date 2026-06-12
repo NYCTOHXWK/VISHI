@@ -1,8 +1,6 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", async () => {
   Security.registerServiceWorker();
-  const integrity = Security.integrityCheck();
-  if (!integrity.ok) console.warn("Configuration integrity warnings:", integrity.problems);
   Security.applyPrivateMode();
   document.querySelector(".loader")?.classList.add("hide-delay");
   const page = document.body.dataset.page;
@@ -100,13 +98,13 @@ async function initAdmin() {
     if (!file) return;
     const text = await file.text();
     JSON.parse(text);
-    localStorage.setItem(window.STORY_CONFIG.unlockSettings.configOverrideKey, text);
+    localStorage.setItem("vishi_config_override", text);
     location.reload();
   });
   document.getElementById("previewFinal")?.addEventListener("click", () => location.href = "chapter-19.html");
   document.getElementById("logoutBtn")?.addEventListener("click", () => AUTH.logout());
 
-  function saveOverride(value) { localStorage.setItem(window.STORY_CONFIG.unlockSettings.configOverrideKey, JSON.stringify(value)); }
+  function saveOverride(value) { localStorage.setItem("vishi_config_override", JSON.stringify(value)); }
   function downloadConfig(value) {
     const blob = new Blob([JSON.stringify(value, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
@@ -117,7 +115,7 @@ async function initAdmin() {
   }
   function renderSchedule() {
     const schedule = UnlockSystem.getSchedule();
-    document.getElementById("schedule").innerHTML = Object.entries(schedule.unlocks).map(([chapter, time]) => `<p><strong>Chapter ${chapter}</strong> — ${new Date(Number(time)).toLocaleString("en-IN", { timeZone: config.timezone })}</p>`).join("");
+    document.getElementById("schedule").innerHTML = Object.entries(schedule.unlocks).map(([chapter, time]) => `<p><strong>Chapter ${chapter}</strong> — ${new Date(Number(time)).toLocaleString()}</p>`).join("");
   }
 
   drawList(); drawForm(); renderSchedule();
