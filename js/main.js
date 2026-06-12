@@ -85,34 +85,16 @@ async function initAdmin() {
     chapter.reveal = Security.sanitizeText(data.get("reveal"), 2000);
     saveOverride(config);
     drawList();
-    alert("Chapter saved locally. Export configuration to keep a copy.");
+    alert("Chapter saved locally.");
   });
 
   document.getElementById("unlockAll")?.addEventListener("click", async () => { if (await AUTH.requireAdminReauth()) { UnlockSystem.unlockAll(); renderSchedule(); } });
   document.getElementById("lockAll")?.addEventListener("click", async () => { if (await AUTH.requireAdminReauth()) { UnlockSystem.lockAll(); renderSchedule(); } });
   document.getElementById("resetProgress")?.addEventListener("click", async () => { if (await AUTH.requireAdminReauth()) { UnlockSystem.reset(); renderSchedule(); } });
-  document.getElementById("exportConfig")?.addEventListener("click", async () => { if (!await AUTH.requireAdminReauth()) return; downloadConfig(config); });
-  document.getElementById("importConfig")?.addEventListener("change", async event => {
-    if (!await AUTH.requireAdminReauth()) return;
-    const file = event.target.files[0];
-    if (!file) return;
-    const text = await file.text();
-    JSON.parse(text);
-    localStorage.setItem("vishi_config_override", text);
-    location.reload();
-  });
   document.getElementById("previewFinal")?.addEventListener("click", () => location.href = "chapter-19.html");
   document.getElementById("logoutBtn")?.addEventListener("click", () => AUTH.logout());
 
   function saveOverride(value) { localStorage.setItem("vishi_config_override", JSON.stringify(value)); }
-  function downloadConfig(value) {
-    const blob = new Blob([JSON.stringify(value, null, 2)], { type: "application/json" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "story-config-export.json";
-    link.click();
-    URL.revokeObjectURL(link.href);
-  }
   function renderSchedule() {
     const schedule = UnlockSystem.getSchedule();
     document.getElementById("schedule").innerHTML = Object.entries(schedule.unlocks).map(([chapter, time]) => `<p><strong>Chapter ${chapter}</strong> — ${new Date(Number(time)).toLocaleString()}</p>`).join("");
