@@ -1,0 +1,18 @@
+# Personal media for the private birthday site.
+# Keep these local/deployment-only so Codex PRs do not include binary files.
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.png
+assets/images/*.webp
+assets/images/*.gif
+assets/audio/*.mp3
+assets/audio/*.wav
+assets/audio/*.m4a
+assets/audio/*.ogg
+assets/videos/*.mp4
+assets/videos/*.mov
+assets/videos/*.webm
+
+!assets/images/README_IMAGES.txt
+!assets/audio/README_AUDIO.txt
+!assets/videos/README_VIDEOS.txt
