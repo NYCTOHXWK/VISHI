@@ -23,8 +23,8 @@ window.STORY_CONFIG = {
     },
     {
       // TEST SUBJECT 1 - For testing and previewing
-      username: "testsubject1",
-      password: "test123",
+      username: "tests1",
+      password: "test1",
       role: "testsubject",
       isTestSubject: true,
       displayName: "Test Subject 1"
