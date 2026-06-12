@@ -120,7 +120,7 @@ async function renderChapter(number) {
         <figure class="chapter-image">
           <!-- Replace with your personal image -->
           ${mediaImage(chapter.image, chapter.alt)}
-          <figcaption>Replace with your personal image</figcaption>
+          <figcaption>LOVE YOU JIIIIIIIIIII</figcaption>
         </figure>
         <section class="story" aria-label="Chapter story">${htmlText(chapter.text)}</section>
         <aside class="reveal">${htmlText(chapter.reveal)}</aside>
