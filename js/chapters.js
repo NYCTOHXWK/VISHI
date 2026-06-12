@@ -61,7 +61,7 @@ function showMissingMedia(event) {
   holder.className = "media-placeholder";
   holder.setAttribute("role", "img");
   holder.setAttribute("aria-label", target.alt || "Photo placeholder");
-  holder.innerHTML = "<span>♡</span><strong>Replace with your personal image</strong>";
+  holder.innerHTML = "<span>♡</span><strong>LOVE YOU JIIIIIII</strong>";
   target.replaceWith(holder);
 }
 
