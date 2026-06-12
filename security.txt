@@ -1,0 +1,4 @@
+Contact: mailto:security@example.invalid
+Policy: This private static birthday website is not intended for public indexing or discovery.
+Preferred-Languages: en
+Canonical: /security.txt
